@@ -33,4 +33,14 @@ public class PassRepository {
     public List<String> getUserPass() {
         return userPass;
     }
+
+    public String getUsername(String username){
+        String result="";
+        for (String name : this.userPass){
+            if (name.contains(username)){
+                result = name;
+            }
+        }
+        return result;
+    }
 }
