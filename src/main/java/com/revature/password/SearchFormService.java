@@ -15,10 +15,12 @@ public class SearchFormService extends HttpServlet {
                 "    <Title> Search Username Password " +
                 "</Title>\n" +
                 "<Body> \n" +
+                "<h1> Userinfo Search</h1>\n"+
                 "    <Form action='/userInfo' method ='get'>\n" +
                 "        <input type = 'name' name='searchName'/>\n" +
                 "        <input type = 'submit' value='Search'/>\n" +
                 "    " +
+                "<a href='/userInfo'> See full List</a>\n" +
                 "</Form>\n" +
                 "</Body>\n" +
                 "</Html>";
