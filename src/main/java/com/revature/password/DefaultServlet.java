@@ -19,7 +19,7 @@ public class DefaultServlet extends HttpServlet {
         InputStream file = getClass().getClassLoader().getResourceAsStream(filename);
         if (file == null){
             resp.setStatus(404);
-            resp.getWriter().println("File aint here");
+            resp.getWriter().println("Try /webPassAppName/search");
             return;
         }
         IOUtils.copy(file,resp.getOutputStream());

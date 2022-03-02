@@ -19,11 +19,11 @@ public class PassService extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String userInput;
-        userInput = req.getParameter("searchName");
+        String userName;
+        userName = req.getParameter("searchName");
 
-        if (userInput != null) {
-            String result = passRepository.getUsername(userInput).getName();
+        if (userName != null) {
+            String result = passRepository.getUserName(userName).getName();
             resp.getWriter().println(result);
         } else {
 

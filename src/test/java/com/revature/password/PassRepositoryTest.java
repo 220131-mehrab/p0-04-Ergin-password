@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 
 public class PassRepositoryTest {
     @Test
-    public void getPasswordTest(){
-        PassRepository testRepo = new PassRepository("passwordtest.csv");
-        Password actual = testRepo.getUsername("Rachel");
+    public void getCSVPasswordTest(){
+        CSVPassRepository testRepo = new CSVPassRepository("passwordtest.csv");
+        Password actual = testRepo.getUserName("Rachel");
         Password expected = new Password("Rachel");
         //Assertions.assertEquals(expected.getName(), actual.getName());
     }

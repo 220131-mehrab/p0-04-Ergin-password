@@ -8,15 +8,17 @@ import org.apache.catalina.startup.Tomcat;
 public class PassApp {
     public static void main (String[] args){
         String webPassAppName = "password";
+        PassRepository passRepository;
         //File fileSource = new File("password.csv");
-        PassRepository passRepository = new PassRepository("password.csv");
+        //passRepository = new CSVPassRepository("password.csv");
+        passRepository = new InMemoryPassRepository();
         PassService passService = new PassService(passRepository);
         SearchFormService sfService = new SearchFormService();
 
         Tomcat server = new Tomcat();
         //next line is for to clean up the dir system from TomCat Folder
         server.setBaseDir(System.getProperty("java.io.tmpdir"));
-        server.setPort(0);
+        //server.setPort(0);
         server.getConnector();
         server.addContext("webPassAppName",null);
         //we added mapping at the end since we needed a URL
