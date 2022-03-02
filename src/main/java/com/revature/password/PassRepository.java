@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class PassRepository {
     //Creating a list of Strings for the Repo as we named it userpass
-    private List<String> userPass;
+    private List<Password> userPass;
     private InputStream file;
 
     //Constructor for the Repo
@@ -26,18 +26,20 @@ public class PassRepository {
         Scanner scanner = new Scanner(this.file);
         scanner.useDelimiter("\n");
         while (scanner.hasNext()){
-            this.userPass.add(scanner.next());
+            String[] passColumns = scanner.next().split(";");
+            Password temp = new Password(passColumns[2]);
+            this.userPass.add(temp);
         }
     }
 
-    public List<String> getUserPass() {
+    public List<Password> getUserPass() {
         return userPass;
     }
 
-    public String getUsername(String username){
-        String result="";
-        for (String name : this.userPass){
-            if (name.contains(username)){
+    public Password getUsername(String username){
+        Password result = null;
+        for (Password name : this.userPass){
+            if (name.getName().equals(name)){
                 result = name;
             }
         }

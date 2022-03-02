@@ -23,12 +23,12 @@ public class PassService extends HttpServlet {
         userInput = req.getParameter("searchName");
 
         if (userInput != null) {
-            String result = passRepository.getUsername(userInput);
+            String result = passRepository.getUsername(userInput).getName();
             resp.getWriter().println(result);
         } else {
 
             // we created a getUserPass method in passRepository we will use it here
-            for (String userinfo : passRepository.getUserPass()) {
+            for (Password userinfo : passRepository.getUserPass()) {
                 resp.getWriter().println(userinfo);
             }
         }
