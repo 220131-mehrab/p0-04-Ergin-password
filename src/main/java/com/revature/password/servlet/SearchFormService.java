@@ -1,4 +1,4 @@
-package com.revature.password;
+package com.revature.password.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;

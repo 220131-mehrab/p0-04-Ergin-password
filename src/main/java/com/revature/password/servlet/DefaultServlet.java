@@ -1,4 +1,4 @@
-package com.revature.password;
+package com.revature.password.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -16,10 +16,11 @@ public class DefaultServlet extends HttpServlet {
         if (filename.equals("")){
             filename = "index.html";
         }
+        //Searching the file in the folders
         InputStream file = getClass().getClassLoader().getResourceAsStream(filename);
         if (file == null){
             resp.setStatus(404);
-            resp.getWriter().println("Try /webPassAppName/search");
+            resp.getWriter().println("Try /webPassAppName/search or /webPassAppName/userInfo");
             return;
         }
         IOUtils.copy(file,resp.getOutputStream());

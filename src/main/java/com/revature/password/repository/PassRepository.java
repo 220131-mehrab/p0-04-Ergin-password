@@ -1,4 +1,6 @@
-package com.revature.password;
+package com.revature.password.repository;
+
+import com.revature.password.domain.Password;
 
 import java.util.List;
 

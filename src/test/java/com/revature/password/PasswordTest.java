@@ -1,10 +1,10 @@
 package com.revature.password;
 
+import com.revature.password.domain.Password;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 public class PasswordTest {

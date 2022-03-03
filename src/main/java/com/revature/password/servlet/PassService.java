@@ -1,5 +1,7 @@
-package com.revature.password;
+package com.revature.password.servlet;
 
+import com.revature.password.domain.Password;
+import com.revature.password.repository.PassRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

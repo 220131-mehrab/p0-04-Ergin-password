@@ -1,4 +1,4 @@
-package com.revature.password;
+package com.revature.password.domain;
 
 import java.util.Objects;
 
@@ -7,6 +7,8 @@ public class Password implements Comparable<Password>{
     private String name;
     private String email;
     private String phone;
+    private String lastname;
+    private String password;
 
     public Password(){
 
@@ -34,6 +36,14 @@ public class Password implements Comparable<Password>{
 
     public Password name(String name){
         this.name = name;
+        return this;
+    }
+    public Password lastname(String lastname){
+        this.lastname = lastname;
+        return this;
+    }
+    public Password password(String password){
+        this.password = password;
         return this;
     }
 
@@ -70,6 +80,8 @@ public class Password implements Comparable<Password>{
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 
@@ -90,4 +102,5 @@ public class Password implements Comparable<Password>{
     public int compareTo(Password o) {
         return Integer.compare(this.passID, o.getPassID());
     }
+
 }
