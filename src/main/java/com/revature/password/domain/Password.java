@@ -1,106 +1,77 @@
 package com.revature.password.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
 import java.util.Objects;
 
-public class Password implements Comparable<Password>{
-    private int passID;
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Password  {
+    @JsonProperty("id")
+    private String id;
+    private String password;
     private String name;
+    private String lastname;
     private String email;
     private String phone;
-    private String lastname;
-    private String password;
 
-    public Password(){
-
-    }
-
-    public Password(String name){
-        this(-1,name,"","");
-    }
-
-    public Password(int passID, String name, String email, String phone) {
-        this.passID = passID;
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-    }
-    public static Password of(){
+    public static Password of() {
         return new Password();
     }
 
-    public Password id(int id){
-        this.passID = id;
+    public Password id(String id) {
+        this.id = id;
         return this;
     }
 
-
-    public Password name(String name){
+    public Password name(String name) {
         this.name = name;
         return this;
     }
-    public Password lastname(String lastname){
+
+    public Password lastname(String lastname) {
         this.lastname = lastname;
         return this;
     }
-    public Password password(String password){
+
+    public Password password(String password) {
         this.password = password;
         return this;
     }
 
-    public Password email(String email){
+    public Password email(String email) {
         this.email = email;
         return this;
     }
 
-    public Password phone(String phone){
+    public Password phone(String phone) {
         this.phone = phone;
         return this;
     }
 
-    public String getName(){
-        return this.name;
-    }
-
-    public int getPassID() {
-        return passID;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPhone() {
-        return phone;
+    public String getId() {
+        return id;
     }
 
     @Override
     public String toString() {
         return "Password{" +
-                "passID=" + passID +
+                "id=" + id +
+                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", password='" + password + '\'' +
                 '}';
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Password password = (Password) o;
-        return passID == password.passID && Objects.equals(name, password.name) && Objects.equals(email, password.email) && Objects.equals(phone, password.phone);
-    }
-
-    @Override
     public int hashCode() {
-        return Objects.hash(passID, name, email, phone);
+        return Objects.hash(id, password, name, lastname, email, phone);
     }
 
-    @Override
-    public int compareTo(Password o) {
-        return Integer.compare(this.passID, o.getPassID());
+    public Object getName() {
+        return null;
     }
-
 }

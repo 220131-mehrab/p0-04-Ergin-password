@@ -1,7 +1,7 @@
 package com.revature.password.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.password.domain.PassAPIWord;
+//import com.revature.password.domain.PassAPIWord;
 import com.revature.password.domain.Password;
 
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class PassAPIWordRepository implements PassRepository{
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             String httpBody =response.body();
-            result = mapper.readValue(httpBody, PassAPIWord.class);
+            result = mapper.readValue(httpBody, Password.class);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

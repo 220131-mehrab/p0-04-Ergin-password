@@ -2,38 +2,39 @@ package com.revature.password.repository;
 
 import com.revature.password.domain.Password;
 
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class CSVPassRepository implements PassRepository {
-    //Creating a list of Strings for the Repo as we named it userpass
     private List<Password> userPass;
     private InputStream file;
 
-    //Constructor for the Repo
     public CSVPassRepository(String filename) {
         this.userPass = new ArrayList<>();
-        //pass the file
-        //after using getClass. we don't need this line anymore.
-        //this.file = new File("src/main/resources/" + filename);
-        //This line will search thr every single folder to find the file
         this.file = getClass().getClassLoader().getResourceAsStream(filename);
-        //then load the file,call load
         load();
+
     }
-    //creation of the load method
     private void load() {
         Scanner scanner = new Scanner(this.file);
         scanner.useDelimiter("\n");
+        int i = 0;
         while (scanner.hasNext()){
             String[] passColumns = scanner.next().split(";");
-            Password temp = new Password(passColumns[2]);
+            System.out.println(passColumns[i]);
+            Password temp = Password.of().id(passColumns[0])
+                    .password(passColumns[1])
+                    .name(passColumns[2])
+                    .lastname(passColumns[3])
+                    .email(passColumns[4])
+                    .phone(passColumns[5]);
             this.userPass.add(temp);
+            i++;
         }
     }
-
     public List<Password> getUserPass() {
         return userPass;
     }

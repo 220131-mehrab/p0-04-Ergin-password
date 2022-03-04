@@ -23,6 +23,8 @@ public class DefaultServlet extends HttpServlet {
             resp.getWriter().println("Try /webPassAppName/search or /webPassAppName/userInfo");
             return;
         }
+        String mimeType = getServletContext().getMimeType(filename);
+        resp.setContentType(mimeType);
         IOUtils.copy(file,resp.getOutputStream());
     }
 }

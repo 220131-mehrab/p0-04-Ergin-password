@@ -6,7 +6,6 @@ import java.sql.*;
 import java.util.List;
 
 public class SQLPassRepository implements PassRepository {
-    //as application of Polimorphism PassRepository is taking the form of the other repositories
     @Override
     public Password getUserName(String userName) {
         Password result = null;
@@ -19,7 +18,7 @@ public class SQLPassRepository implements PassRepository {
                 ResultSet resultSet = statement.getResultSet();
                 while (resultSet.next()) {
                     result = Password.of()
-                            .id(resultSet.getInt("ID"))
+                            .id(resultSet.getString("ID"))
                             .password(resultSet.getString("PASSWORD"))
                             .name(resultSet.getString("NAME"))
                             .lastname(resultSet.getString("LASTNAME"))
